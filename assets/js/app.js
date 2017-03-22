@@ -20,7 +20,7 @@ $(document).ready(function(){
       console.log(results);
 
       //Clear previous images if there are any.
-      // $(".animals").empty();
+     $(".animals").empty();
 
       for (var i = 0; i < results.length; i++) {
 
