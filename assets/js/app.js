@@ -35,13 +35,12 @@ $(document).ready(function(){
 
       // Retrieving the URL for the image
       var imgURL = results[i].images.fixed_height_still.url;
-      var still_url = imgURL.substring(0, imgURL.length - 4 ).concat("_s.gif")
-      
+      var imgAnimate = results[i].images.fixed_height.url;
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
           image.attr("data-state", "still");
-          image.attr("data-animate", results[i].images.fixed_height.url);
-          image.attr("data-still", results[i].images.fixed_height_still.url);
+          image.attr("data-animate", imgAnimate);
+          image.attr("data-still", imgURL);
 
       // Appending the image
       topicDiv.append(image);
@@ -88,7 +87,10 @@ $(document).ready(function(){
 
       // Adding topic from the textbox to our array
       topics.push(topic);
-
+      
+      //Once the submit button is clicked, remove the text.
+      $("#animal-input").val("");
+      
       // Calling renderButtons which handles the processing of our topic array
       renderButtons();
     
@@ -113,11 +115,11 @@ $(document).ready(function(){
         // Then, set the image's data-state to animate
         // Else set src to the data-still value
         if (state === "still") {
-          var animate_url = $(this).attr("data-animate")
+          var animate_url = $(this).attr("data-animate");
           $(this).attr("src", animate_url);
           $(this).attr("data-state", "animate");
         } else {
-          var still_url = $(this).attr("data-still")
+          var still_url = $(this).attr("data-still");
           $(this).attr("src", still_url);
           $(this).attr("data-state", "still");
         }
