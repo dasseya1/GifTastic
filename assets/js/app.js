@@ -145,7 +145,8 @@ $(document).ready(function(){
                      .css('margin-right',"20%")
                      .css('background-color',"#000")
                      .css('padding',"20px 15px")
-                     .css('border-radius',"5px");
+                     .css('border-radius',"5px")
+                     .css('margin-top',"1%");
                      
     //Set the background and text colors
     $('body').css('background-color',"#800080")
