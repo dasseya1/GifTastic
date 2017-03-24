@@ -17,7 +17,6 @@ $(document).ready(function(){
 
       //API Call results
       var results = response.data;
-      console.log(results);
 
       //Clear previous images if there are any.
      $(".animals").empty();
@@ -50,7 +49,7 @@ $(document).ready(function(){
       // Putting the entire topic above the previous topics
       $(".animals").prepend(topicDiv);
     }
-    
+    imgPlacement();
     setImgClick();
   });
   
@@ -59,8 +58,7 @@ $(document).ready(function(){
     // Function for displaying topic data
     function renderButtons() {
 
-      // Deleting the topics prior to adding new topics
-      // (this is necessary otherwise you will have repeat buttons)
+      // Deleting the images prior to adding new ones
       $(".animalbuttons").empty();
 
       // Looping through the array of topics
@@ -78,6 +76,7 @@ $(document).ready(function(){
         // Adding the button to the buttons-view div
         $(".animalbuttons").append(a);
       }
+        styleButton();
     }
 
     // This function handles events where a topic button is clicked
@@ -124,5 +123,30 @@ $(document).ready(function(){
         }
       });
     }
+    
+    //This function is for styling the buttons
+    function styleButton (){
+      $('button').css('background-color',"#4CAF50")
+                 .css('margin-right',"2%")
+                 .css('padding',"6px 10px");
+    }  
+    
+    //This function is for styling the buttons
+    function imgPlacement(){
+      $('.topic').css('clear',"right")
+                 .css('display',"inline-block")
+                 .css('margin-right',"2%");
+    }
+    
+    //Style for the animal form
+    $('#animal-form').css('float',"right")
+                     .css('margin-right',"20%")
+                     .css('background-color',"#000")
+                     .css('padding',"20px 15px")
+                     .css('border-radius',"5px");
+                     
+    //Set the background and text colors
+    $('body').css('background-color',"#800080")
+             .css('color',"white");
       
 });
